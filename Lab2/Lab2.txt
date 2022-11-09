@@ -1,0 +1,111 @@
+Lab 2
+Arduino Basics
+Keaton Clark
+September 20, 2022
+
+1
+
+Circuit
+330Ω
+1kΩ
+
+D4
+
+D2
+
+5v
+
+1
+
+2
+
+Code
+
+main.c
+#i n c l u d e <avr / i o . h>
+#i n c l u d e < u t i l / d e l a y . h>
+3 #i n c l u d e <s t d i o . h>
+4 #i n c l u d e
+” i o . h”
+1
+2
+
+5
+
+i n t main ( v o i d ) {
+p i n t output = new pin ( 4 ) ;
+8
+p i n t i n p u t = new pin ( 2 ) ;
+9
+u a r t i n i t (9600) ;
+10
+u i n t 8 t p r e v s t a t e = read pin ( input ) ;
+11
+for ( int i ; ; ) {
+12
+i f ( r e a d p i n ( i n p u t ) && ! p r e v s t a t e ) {
+13
+w r i t e p i n ( output , HIGH) ;
+14
+p r i n t f ( ” Switch C l o s e d \n” ) ;
+15
+p r e v s t a t e = HIGH ;
+16
+} e l s e i f ( ! r e a d p i n ( i n p u t ) && p r e v s t a t e
+) {
+17
+w r i t e p i n ( output , LOW) ;
+18
+p r i n t f ( ” Switch Open\n” ) ;
+19
+p r e v s t a t e = LOW;
+20
+}
+21
+}
+22 }
+6
+7
+
+The remainder of the source code is included under ./src
+
+2
+
+3
+
+Results
+
+3
+
+4
+
+Questions
+1. A pin on the Arduino is a semi-arbitrary number assigned to a pin on the
+microcontroller present on the specific model of Arduino. This helps us to
+more easily interface with the microcontroller through the Arduino IDE.
+2. The serial port is in reference to the UART communication you are able
+to use on the ATMEGA2560 which is a type of serial communication that
+works with two lines to transmit and receive at the same time. On the
+Arduino Mega 2560 this is actually communicating with a second microcontroller (ATMEGA16u2) which then handles communication through
+USB.
+3. Analog data is transmitted by a variable voltage, on the Arduino it is
+0-5v, and can be expressed as a range of values correlating to the ratio of
+the signal voltage to the maximum readable voltages. Digital on the other
+hand is simply the presence or absence of a signal with 0v correlating to
+a 0 and any percievable voltage correlating to a 1.
+
+5
+
+Oscilloscope
+1. The Oscilloscope reads ≈ 0V when the button is not pressed.
+
+2. The Oscilloscope reads ≈ 4.6V − 5V when pressed.
+
+4
+
+3. This is due to us writing to the DDR and PORT register telling the IC to
+allow power to travel through that pin.
+
+5
+
+

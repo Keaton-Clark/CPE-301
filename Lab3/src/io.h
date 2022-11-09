@@ -1,0 +1,30 @@
+#include <avr/io.h>
+#include <util/delay.h>
+#include <stdio.h>
+
+#ifndef IO_H
+#define IO_H
+#define HIGH 0xFF
+#define LOW 0x0
+
+#define RX_BUFSIZE 80
+
+
+typedef struct pin_data {
+	uint8_t _group;
+	volatile void *_ddr; // Data Direction Register
+	volatile void *_port; // Pin Output Register
+	volatile void *_pin; // Pin Input Register
+	volatile void *_timer; // Timer if pwm pin
+	uint8_t _bitmask; // Bit position
+} pin_t;
+
+uint8_t read_pin(pin_t pin);
+void write_pin(pin_t pin, uint8_t value);
+pin_t new_pin(uint8_t pinNum);
+void uart_init(uint16_t baud_rate);
+int uart_get_char(FILE *stream);
+int uart_put_char(char c, FILE *stream);
+int uart_read_char();
+
+#endif //IO_H

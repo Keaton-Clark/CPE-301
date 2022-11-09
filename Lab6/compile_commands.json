@@ -1,0 +1,32 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/avr-gcc",
+      "-mmcu=atmega2560",
+      "-Os",
+      "-DF_CPU=16000000UL",
+      "-c",
+      "-o",
+      "bin/src/io.o",
+      "src/io.c"
+    ],
+    "directory": "/home/kc/Edu/CPE/Lab3",
+    "file": "/home/kc/Edu/CPE/Lab3/src/io.c",
+    "output": "/home/kc/Edu/CPE/Lab3/bin/src/io.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/avr-gcc",
+      "-mmcu=atmega2560",
+      "-Os",
+      "-DF_CPU=16000000UL",
+      "-c",
+      "-o",
+      "bin/src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/kc/Edu/CPE/Lab3",
+    "file": "/home/kc/Edu/CPE/Lab3/src/main.c",
+    "output": "/home/kc/Edu/CPE/Lab3/bin/src/main.o"
+  }
+]
